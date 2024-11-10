@@ -1,0 +1,46 @@
+<div class="container" *ngIf="billDetails">
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header"> Bill Id : {{billDetails.id}} </div>
+      <div class="card-body">
+      <ul class="list-group">
+        <li class="list-group-item">Date : {{billDetails.billingDate}}</li>
+        <li class="list-group-item">Customer Id : {{billDetails.customerId}}</li>
+        <li class="list-group-item">Customer Name : {{billDetails.customer.name}}</li>
+        <li class="list-group-item">Customer Email: {{billDetails.customer.email}}</li>
+        <li class="list-group-item">Customer Id : {{billDetails.date}}</li>
+      </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        Products Items
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Product Id</th>
+              <th>Product Name</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of billDetails.productItems">
+              <td>{{item.id}}</td>
+              <td>{{item.product.name}}</td>
+              <td>{{item.quantity | number :'1.2-2'}}</td>
+              <td>{{item.price | number :'1.2-2'  }}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
